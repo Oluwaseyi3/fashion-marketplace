@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import Navbar from './components/Navbar'
+import Layout from './layout/Layout'
 
 
 function App() {
@@ -10,6 +9,7 @@ function App() {
     <>
        <div className=' w-full overflow-hidden'>
         <Navbar/>
+        <Layout/>
        </div>
     </>
   )

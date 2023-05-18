@@ -1,9 +1,24 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Buttons from './Buttons'
 
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const [active, setActive] = useState(false)
+    console.log(active);
+    
+    const isActive = () => {
+        window.scrollY > 0 ? setActive(true) : setActive(false)
+    }
+
+    useEffect(() => {
+      window.removeEventListener("scroll", isActive)
+    
+      return () => {
+       window.removeEventListener("scroll", isActive)
+      }
+    }, [])
+    
   return (
     <div> 
         {/* <Buttons title="login"/> */}
@@ -18,26 +33,56 @@ const Navbar = () => {
               <ul className="md:flex hidden uppercase items-center gap-8 ">
           <li>
             <a href="/" className="py-4 px-3 inline-block">
-              Home
+              Explore
             </a>
           </li>
           <li>
             <a href="/services" className="py-4 px-3 inline-block">
-              Services
+              Sign In
             </a>
           </li>
           <li>
             <a href="/about" className="py-4 px-3 inline-block">
-              About Us
+            Become A Seller
+            </a>
+          </li>
+
+          <Buttons title='Join Us' />
+       
+        </ul>
+        <ul
+          className={`
+        md:hidden bg-black z-10 fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4 text-white
+        duration-500 ${open ? "right-0" : "right-[-100%]"}
+        `}
+        >
+          <li>
+            <a href="/" className="py-7 px-3 inline-block">
+              Home
             </a>
           </li>
 
           <li>
-            <a href="/membership" className="py-4 px-3 inline-block">
-             Members
+            <a href="/services" className="py-7 px-3 inline-block">
+            Services
             </a>
           </li>
-       
+          <li>
+            <a href="/about" className="py-7 px-3 inline-block">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="/membership" className="py-7 px-3 inline-block">
+              Member
+            </a>
+          </li>
+        
+          <div className="py-5">
+          <a href="/register" className="py-7 px-3 inline-block">
+          <Buttons title="Register with us" />
+          </a>
+          </div>
         </ul>
             </div>
             
