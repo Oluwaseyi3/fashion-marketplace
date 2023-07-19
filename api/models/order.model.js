@@ -8,25 +8,30 @@ gigId: {
     required: true
 },
 
-gigId: {
+img : {
     type: String,
     required: true
 },
-gigId: {
+price: {
+    type: Number,
+    required: true
+},
+sellerId : {
     type: String,
     required: true
 },
-gigId: {
+buyerId : {
     type: String,
     required: true
 },
-gigId: {
-    type: String,
-    required: true
+isCompleted: {
+    type: Boolean,
+    default:false
 },
-gigId: {
-    type: String,
-    required: true
+
+payment_intent: {
+    type: Boolean,
+    required:true
 },
 
 }, {
