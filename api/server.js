@@ -8,8 +8,12 @@ import conversationRoute from './routes/conversation.route.js'
 import messageRoute from "./routes/message.route.js"
 import reviewRoute from "./routes/review.route.js"
 import authRoute from "./routes/auth.route.js"
+import cookieParser from "cookie-parser";
 
 const app = express()
+app.use(express.json())
+app.use(cookieParser())
+
 
 mongoose.set("strictQuery", true)
 
@@ -20,10 +24,10 @@ try {
     console.log(error);
 }
 
-app.use(express.json())
+
 
 app.use('/api/auth', authRoute)
-app.use("/api/user", userRoute)
+app.use("/api/users", userRoute)
 
 app.use('/api/users', gigRoute)
 app.use('/api/orders', orderRoute)
