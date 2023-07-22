@@ -35,6 +35,12 @@ app.use('/api/conversations', conversationRoute)
 app.use('/api/messages', messageRoute)
 app.use("/api/reviews", reviewRoute)
 
+app.use((err, req, res, next) => {
+    const errorStatus = err.status || 500
+    const errorMessage = err.message || "Something obviously went wrong"
+
+    return res.status(errorStatus).send(errorMessage)
+})
 
 app.listen(8800, ()=> {
     console.log("Server is running");
