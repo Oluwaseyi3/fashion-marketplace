@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-       <div className=' w-full overflow-hidden'>
+       <div className=' max-w-[1580px] w-full overflow-hidden m-auto'>
         <Navbar/>
         <Layout/>
        </div>
