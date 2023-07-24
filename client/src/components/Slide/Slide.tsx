@@ -9,28 +9,14 @@ import {cards} from "../../data"
 
 const Slide: React.FC = () => {
   return (
-    <div>
-       {
+    <div className='container mx-auto px-4 py-10 mt-10'>
+     
+      <Slider dots slidesToShow={4} autoplay={true} arrowsScroll={1} arrows={false} autoplayScroll pauseOnHover rows={1}>
+      {
         cards.map((card) =>(
           <CartCard  key={card.id} item={card}/>
         ))
        }
-      <Slider dots>
-    <div>
-      <h3>1</h3>
-    </div>
-    <div>
-      <h3>2</h3>
-    </div>
-    <div>
-      <h3>3</h3>
-    </div>
-    <div>
-      <h3>4</h3>
-    </div>
-    <div>
-      <h3>5</h3>
-    </div>
   </Slider>
     </div>
   )

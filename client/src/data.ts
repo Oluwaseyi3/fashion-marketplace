@@ -15,7 +15,7 @@ export const cards:Card[] = [
     {
       id: 2,
       title: "Logo Design",
-      desc: "Build yor brand",
+      desc: "Build your own brand",
       img: "https://images.pexels.com/photos/11295165/pexels-photo-11295165.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
     },
     {

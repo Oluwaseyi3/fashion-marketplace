@@ -10,10 +10,13 @@ const CartCard = ({item}: Card) => {
     
     
   return (
-    <div className='max-w-[252px] max-h-[344px] text-white rounded-[5px] cursor-pointer' >
+    <div className='max-w-[260px]  max-h-[344px] text-white rounded-[5px] relative cursor-pointer' >
       <img src={item.img} className='w-full h-full' alt="card image"/>
-      <span className='font-[300] absolute text-black text-[104px] top-[15px] left-[15px]'>{item.desc}</span>
-      <span className='font-[500] absolute text-[24px] top-[40px] left-[15px]'>{item.title}</span>
+      <div className='p-2'>
+      <span className='font-[500] absolute  text-[24px] top-[15px] w-full left-[15px] '>{item.desc}</span>
+      <span className='font-[500] absolute  text-[24px] top-[60px] w-full p-1 left-[15px]'>{item.title}</span>
+      </div>
+     
     </div>
   )
 }
