@@ -25,7 +25,7 @@ const Navbar = () => {
         <nav className="bg-white text-black ">
             <div className="flex items-center font-medium justify-between p-4">
             <div className="z-50 p-0 md:w-auto w-full flex justify-between">
-               <h2 className="text-[25px] ml-5">finesse</h2>
+               <h2 className="text-[25px] ml-7">finesse</h2>
                <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
                  <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
                 </div>

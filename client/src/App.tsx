@@ -1,6 +1,6 @@
 
 import Navbar from './components/Navbar'
-import Layout from './layout/Layout'
+import Landing from './pages/layout/Landing.tsx'
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom"
 import Gigs from './pages/gigs/Gigs'
 
@@ -13,7 +13,8 @@ function App() {
     return (
       <div className=' max-w-[1580px] w-full overflow-hidden m-auto'>
       <Navbar/>
-      <Layout/>
+      <Outlet/>
+      {/* <Landing/> */}
      </div>
     )
   }
@@ -26,7 +27,7 @@ function App() {
       children:[
         {
           path: "/",
-          element: <Layout/>
+          element: <Landing/>
         },
         {
           path: "/gigs",
