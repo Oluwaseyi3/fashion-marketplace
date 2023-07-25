@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 type Card = {
     item: any
@@ -10,6 +11,7 @@ const CartCard = ({item}: Card) => {
     
     
   return (
+    <Link to="/gigs?cat=design ">
     <div className='max-w-[260px]  max-h-[344px] text-white rounded-[5px] relative cursor-pointer' >
       <img src={item.img} className='w-full h-full' alt="card image"/>
       <div className='p-2'>
@@ -18,6 +20,7 @@ const CartCard = ({item}: Card) => {
       </div>
      
     </div>
+    </Link>
   )
 }
 

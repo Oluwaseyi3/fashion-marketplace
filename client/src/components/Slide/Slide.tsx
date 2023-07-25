@@ -9,7 +9,7 @@ import {cards} from "../../data"
 
 const Slide: React.FC = () => {
   return (
-    <div className='container mx-auto px-4 py-10 mt-10'>
+    <div className='container mx-auto px-4 5 mt-[100px] mb-[100px]'>
      
       <Slider dots slidesToShow={4} autoplay={true} arrowsScroll={1} arrows={false} autoplayScroll pauseOnHover rows={1}>
       {

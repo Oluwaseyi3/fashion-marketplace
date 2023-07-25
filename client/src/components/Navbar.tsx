@@ -32,17 +32,17 @@ const Navbar = () => {
               </div>
               <ul className="md:flex hidden uppercase items-center gap-8 mr-10">
           <li>
-            <a href="/" className="py-4 px-3 inline-block">
+            <a href="/" className="py-4 px-3 inline-block text-black hover:bg-black hover:text-white hover:rounded">
               Explore
             </a>
           </li>
           <li>
-            <a href="/services" className="py-4 px-3 inline-block">
+            <a href="/services" className="py-4 px-3 inline-block text-black hover:bg-black hover:text-white hover:rounded">
               Sign In
             </a>
           </li>
           <li>
-            <a href="/about" className="py-4 px-3 inline-block">
+            <a href="/about" className="py-4 px-3 inline-block text-black hover:bg-black hover:text-white hover:rounded">
             Become A Seller
             </a>
           </li>
