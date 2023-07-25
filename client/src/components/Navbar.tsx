@@ -6,7 +6,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [active, setActive] = useState(false)
     console.log(active);
-    
+   
     const isActive = () => {
         window.scrollY > 0 ? setActive(true) : setActive(false)
     }
