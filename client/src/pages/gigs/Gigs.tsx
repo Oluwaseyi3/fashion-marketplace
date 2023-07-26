@@ -20,14 +20,15 @@ const Gigs = () => {
             <div>finesse & Mobile Apps</div>
             <div className='font-500 text-[40px]'>Mobile Engineers</div>
             <div className=''>Explore and build the best apps</div>
-             <div className='flex items-start justify-between overflow-hidden '>
-             <div className='flex items-center gap-3 '>Budget
+             <div className='flex items-start justify-between py-5'>
+             <div className='flex items-center gap-3 '>
+             <div>Budget</div>
             <input className="p-2 h-[30px] border-[2px] w-[20%]" placeholder=" min" />
             <input className="p-2 h-[30px] border-[2px] w-[20%]" placeholder=" max" />
             <Buttons title="Apply"/>
              </div>
 
-             <div className='flex items-start gap-3'>
+             <div className='flex items-start gap-3 justify-end  w-full overflow-hidden'>
                  <div className='mt-3'>Filter by</div>
                 <div ><Buttons title={sort === "sales" ? "Top Selling": "Newest"} onClick={() =>setOpen(!open)}/>
                 {
@@ -55,7 +56,7 @@ const Gigs = () => {
               
              </div>
              
-             <div className='grid grid-cols-4 gap-10'>
+             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10'>
              {
                     gigs.map(gig => (
                         <GigCard key={gig.id} item={gig}/>
