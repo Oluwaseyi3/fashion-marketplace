@@ -1,5 +1,8 @@
 import React , {useState} from 'react'
 import Buttons from '../../components/Buttons'
+import { gigs } from '../../data';
+import GigCard from "../../components/gigCard/GigCard.tsx"
+
 
 const Gigs = () => {
     const [active, setActive] = useState(false)
@@ -43,9 +46,21 @@ const Gigs = () => {
                         </div>
                         </>
                     )
-                }</div> 
-               
+                }
+                </div> 
              </div>
+              <div>
+                
+              </div>
+              
+             </div>
+             
+             <div className='grid grid-cols-4 gap-10'>
+             {
+                    gigs.map(gig => (
+                        <GigCard key={gig.id} item={gig}/>
+                    ))
+                 }
              </div>
         </div>
     </div>
