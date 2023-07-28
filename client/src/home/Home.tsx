@@ -5,7 +5,7 @@ import Buttons from "../components/Buttons"
 
 const Home = () => {
   return (
-    <div className='  bg-black   flex justify-center items-center'>
+    <div className='  bg-purple-800   flex justify-center items-center'>
           <div className='flex lg:flex-row flex-col justify-start p-5 w-auto'>
                 <div className='flex flex-col justify-start   lg:items-start items-center pt-3 max-w-[50rem] h-[70%] gap-5 p-5 '>
               

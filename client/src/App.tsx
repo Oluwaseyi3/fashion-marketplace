@@ -4,6 +4,7 @@ import Landing from './pages/layout/Landing.tsx'
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom"
 import Gigs from './pages/gigs/Gigs'
 import Gig from './pages/gig/Gig.tsx'
+import Login from './pages/login/Login.tsx'
 
 
 function App() {
@@ -38,6 +39,10 @@ function App() {
           path: "/gig",
           element: <Gig/>
         },
+        {
+          path:'/login',
+          element: <Login/>
+        }
       ]
     }
   ])

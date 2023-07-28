@@ -15,12 +15,13 @@ const Gigs = () => {
       setOpen(false)
     }
   return (
-    <div>
-        <div className="container mx-auto flex flex-col gap-5">
+            
+    <div className=''>
+        <div className="container mx-auto flex flex-col gap-5 ">
             <div>finesse & Mobile Apps</div>
             <div className='font-500 text-[40px]'>Mobile Engineers</div>
             <div className=''>Explore and build the best apps</div>
-             <div className='flex items-start justify-between py-5'>
+             <div className='flex items-start justify-between py-5 '>
              <div className='flex items-center gap-3 '>
              <div>Budget</div>
             <input className="p-2 h-[30px] border-[2px] w-[20%]" placeholder=" min" />
