@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Landing from './pages/layout/Landing.tsx'
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom"
 import Gigs from './pages/gigs/Gigs'
+import Gig from './pages/gig/Gig.tsx'
 
 
 function App() {
@@ -32,6 +33,10 @@ function App() {
         {
           path: "/gigs",
           element: <Gigs/>
+        },
+        {
+          path: "/gig",
+          element: <Gig/>
         },
       ]
     }
