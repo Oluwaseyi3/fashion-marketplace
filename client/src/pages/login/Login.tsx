@@ -1,25 +1,28 @@
 import { Button } from '@mui/material'
 import React, {useState} from 'react'
 import axios from 'axios'
+import newRequest from '../../utils/newRequest.ts'
 import Buttons from '../../components/Buttons'
 
 const Login = () => {
    
 const [username, setUsername] = useState("")
 const [password, setPassword] = useState("")
-const [error, setError] = useState<any>(null)
+const [error, setError] = useState<any>("")
 
 const handleSubmit = async(e: any) => {
   e.preventDefault()
 
   try {
-    const res = await axios.post("http://localhost:8800/api/auth/login", {
-      username, password
-    }, {withCredentials: true})
+    const res = await newRequest.post('auth/login', {
+     username, password
+    })
     console.log(res.data);
     
   } catch (err) {
     setError(err)
+    console.log(error);
+    
   }
 }
   return (
