@@ -14,18 +14,28 @@ import cors from "cors"
 const app = express()
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({origin: "http://localhost:5173", credential: true}))
+
+
+const corsOptions = {
+    origin: 'http://localhost:5173', // Replace with your frontend's actual origin
+    credentials: true, // Allow credentials
+};
+
+app.use(cors(corsOptions));
+
 
 
 mongoose.set("strictQuery", true)
 
-try {
-    await mongoose.connect(process.env.MONGO_URI)
-    console.log("Connected to DB");
-} catch (error) {
-    console.log(error);
-}
+const Connect = async() => {
 
+    try {
+        await mongoose.connect(process.env.MONGO_URI)
+        console.log("Connected to DB");
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 app.use('/api/auth', authRoute)
@@ -45,5 +55,6 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(8800, ()=> {
+    Connect()
     console.log("Server is running");
 })
