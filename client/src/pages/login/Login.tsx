@@ -1,6 +1,7 @@
 import { Button } from '@mui/material'
 import React, {useState} from 'react'
 import axios from 'axios'
+import {useNavigate} from "react-router-dom"
 import newRequest from '../../utils/newRequest.ts'
 import Buttons from '../../components/Buttons'
 
@@ -10,6 +11,8 @@ const [username, setUsername] = useState("")
 const [password, setPassword] = useState("")
 const [error, setError] = useState<any>("")
 
+const navigate = useNavigate()
+
 const handleSubmit = async(e: any) => {
   e.preventDefault()
 
@@ -17,7 +20,9 @@ const handleSubmit = async(e: any) => {
     const res = await newRequest.post('auth/login', {
      username, password
     })
-    console.log(res.data);
+    localStorage.setItem("currentUser", JSON.stringify(res.data))
+    navigate('/')
+    // console.log(res.data);
     
   } catch (err) {
     setError(err)

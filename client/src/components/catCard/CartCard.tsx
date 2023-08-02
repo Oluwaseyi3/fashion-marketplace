@@ -7,7 +7,7 @@ type Card = {
 
 
 const CartCard = ({item}: Card) => {
-    console.log(item);
+ 
     
     
   return (

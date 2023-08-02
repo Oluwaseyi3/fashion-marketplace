@@ -1,12 +1,45 @@
 import React, {useState, useEffect} from 'react'
 import Buttons from './Buttons'
-
+import work from "../assets/work.jpg"
+import newRequest from '../utils/newRequest';
+import { useNavigate  } from "react-router-dom";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [active, setActive] = useState(false)
+    const [user, setUser] = useState<string>("")
     console.log(active);
+
+    useEffect(() => {
    
+      const currentUser = JSON.parse(localStorage.getItem("currentUser") || "")
+      if (currentUser) {
+        setUser(currentUser)
+      }
+     
+      console.log(currentUser);
+    }, [user])
+    
+    
+    const navigate = useNavigate()
+
+
+    
+   
+    const handleLogout =async () => {
+      try {
+        await newRequest.post("/auth/logout")
+
+        localStorage.removeItem("currentUser") 
+          
+       setUser("") 
+        
+        navigate('/')
+      } catch (error) {
+        console.log(error);
+        
+      }
+    }
     const isActive = () => {
         window.scrollY > 0 ? setActive(true) : setActive(false)
     }
@@ -47,7 +80,21 @@ const Navbar = () => {
             </a>
           </li>
 
-          <Buttons title='Join Us' />
+          <li>
+          <img
+             src={work}
+             alt=""
+             className='w-[50px]'
+            />
+          </li>
+       
+          {
+            user ?
+            <Buttons onClick={handleLogout} title='Logout' />
+            :
+            <Buttons title='Join us' />
+          }
+        
        
         </ul>
         <ul
@@ -77,11 +124,17 @@ const Navbar = () => {
               Member
             </a>
           </li>
+
+         
         
           <div className="py-5">
+            
           <a href="/register" className="py-7 px-3 inline-block">
           <Buttons title="Register with us" />
           </a>
+          
+           
+         
           </div>
         </ul>
             </div>
