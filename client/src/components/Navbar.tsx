@@ -3,6 +3,7 @@ import Buttons from './Buttons'
 import work from "../assets/work.jpg"
 import newRequest from '../utils/newRequest';
 import { useNavigate  } from "react-router-dom";
+import getCurrentUser from '../utils/getCurrentUser';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -10,15 +11,11 @@ const Navbar = () => {
     const [user, setUser] = useState<string>("")
     console.log(active);
 
-    useEffect(() => {
+    // useEffect(() => {
    
-      const currentUser = JSON.parse(localStorage.getItem("currentUser") || "")
-      if (currentUser) {
-        setUser(currentUser)
-      }
-     
-      console.log(currentUser);
-    }, [user])
+     const currentUser = JSON.parse(localStorage.getItem("currentUser") || "")
+    //  setUser(currentUser)
+    // }, [getCurrentUser])
     
     
     const navigate = useNavigate()
@@ -32,7 +29,7 @@ const Navbar = () => {
 
         localStorage.removeItem("currentUser") 
           
-       setUser("") 
+      //  setUser("") 
         
         navigate('/')
       } catch (error) {
@@ -89,7 +86,7 @@ const Navbar = () => {
           </li>
        
           {
-            user ?
+            currentUser ?
             <Buttons onClick={handleLogout} title='Logout' />
             :
             <Buttons title='Join us' />
