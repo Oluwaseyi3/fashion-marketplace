@@ -9,7 +9,7 @@ interface User {
 }
 
   interface AuthState{
-    user: User | string;
+    user: User | null;
     loading: boolean;
     error: string | null;
   }
@@ -19,12 +19,13 @@ interface User {
   | {type: "LOGIN_SUCCESS"; payload: User}  
   | {type: "LOGIN_FAILURE"; payload: any} 
   | {type: "LOGOUT"}   
-
+  
   const INITIAL_STATE: AuthState = {
-    user: JSON.parse(localStorage.getItem("user") || "") || null,
+    user: JSON.parse(localStorage.getItem("user") || "null"),
     loading: false,
-    error: null
- }
+    error: null,
+  };
+  
 
 export const AuthContext = createContext<{state: AuthState; dispatch: React.Dispatch<Action>}>({
     state: INITIAL_STATE,
@@ -33,7 +34,7 @@ export const AuthContext = createContext<{state: AuthState; dispatch: React.Disp
 
 
 
-const AuthReducer = (state:AuthState, action: Action)  => {
+const AuthReducer = (state:AuthState, action: Action) : AuthState => {
     switch (action.type) {
         case "LOGIN_START":
            return {
@@ -68,6 +69,7 @@ const AuthReducer = (state:AuthState, action: Action)  => {
 interface AuthContextProviderProps{
     children: React.ReactNode;
 }
+
 export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ children }) => {
     const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
@@ -76,8 +78,8 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ childr
     }, [state.user]);
     
     return (
-        <AuthContext.Provider value={{ state, dispatch }}>
+        <AuthContext.Provider value={{ state, dispatch }} >
            {children}
-        </AuthContext.Provider>
+        </AuthContext.Provider> 
     );
 }

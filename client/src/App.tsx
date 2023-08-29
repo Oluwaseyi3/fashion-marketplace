@@ -14,7 +14,7 @@ function App() {
   const AppLayout = () => {
     return (
       <div className=' max-w-[1580px] w-full overflow-hidden m-auto'>
-      {/* <Navbar/> */}
+      <Navbar/>
       <Outlet/>
       {/* <Landing/> */}
      </div>

@@ -1,9 +1,11 @@
 import { Button } from '@mui/material'
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import axios from 'axios'
+import { AuthContext } from '../../components/context/AuthContext.tsx'
 import {useNavigate} from "react-router-dom"
 import newRequest from '../../utils/newRequest.ts'
 import Buttons from '../../components/Buttons'
+
 
 const Login = () => {
    
@@ -11,15 +13,20 @@ const [username, setUsername] = useState("")
 const [password, setPassword] = useState("")
 const [error, setError] = useState<any>("")
 
+const { state, dispatch } = useContext(AuthContext);
+const { user, loading  } = state;
+
 const navigate = useNavigate()
 
 const handleSubmit = async(e: any) => {
   e.preventDefault()
 
+  dispatch({type: "LOGIN_START"})
   try {
     const res = await newRequest.post('auth/login', {
      username, password
     })
+    dispatch({type: 'LOGIN_SUCCESS', payload: res.data})
     localStorage.setItem("currentUser", JSON.stringify(res.data))
     navigate('/')
     // console.log(res.data);
